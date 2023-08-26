@@ -1,30 +1,24 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const participants = [
-    "user1",
-    "user2",
-    "user3",
-    "user4",
-    "user5"
-    // 在这里添加更多参与者
-  ];
-
+  const wheel = document.getElementById("wheel");
   const drawButton = document.getElementById("drawButton");
-  const participantList = document.getElementById("participantList");
   const winnerDisplay = document.getElementById("winner");
 
-  participants.forEach((participant) => {
-    const listItem = document.createElement("li");
-    listItem.textContent = participant;
-    participantList.appendChild(listItem);
-  });
+  let spinning = false;
 
   drawButton.addEventListener("click", () => {
-    if (participants.length > 0) {
-      const randomIndex = Math.floor(Math.random() * participants.length);
-      const winner = participants[randomIndex];
-      winnerDisplay.textContent = `抽奖结果：恭喜 ${winner} 获奖！`;
-    } else {
-      winnerDisplay.textContent = "没有参与者可以抽奖。";
+    if (!spinning) {
+      spinning = true;
+      const randomRotation = 1800 + Math.floor(Math.random() * 1800); // Random rotation between 1800 and 3600 degrees
+      wheel.style.transition = "transform 3s cubic-bezier(0.17, 0.67, 0.83, 0.67)";
+      wheel.style.transform = `rotate(${randomRotation}deg)`;
+
+      setTimeout(() => {
+        const winnerIndex = Math.floor(randomRotation / 60) % 6;
+        const items = document.querySelectorAll(".wheel-item");
+        const winner = items[winnerIndex].textContent;
+        winnerDisplay.textContent = `抽奖结果：恭喜您获得 ${winner}！`;
+        spinning = false;
+      }, 3000); // Wait for 3 seconds for the wheel to stop
     }
   });
 });
