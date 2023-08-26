@@ -1,78 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script> 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GitHub抽奖网站</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-  }
-  h1 {
-    margin-top: 50px;
-  }
-  #participants {
-    margin-top: 20px;
-  }
-  #winner {
-    margin-top: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    color: #ff6347;
-  }
-  button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-</style>
+<title>GitHub抽奖转盘</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>GitHub抽奖网站</h1>
-<div id="participants">
-  <h2>参与者列表</h2>
-  <ul id="participantList">
-    <!-- 在这里添加参与者的列表项 -->
-  </ul>
+<div class="container">
+  <h1>GitHub抽奖转盘</h1>
+  <div class="wheel-container">
+    <div class="wheel" id="wheel">
+      <div class="wheel-item" style="--item-index: 1;">奖品1</div>
+      <div class="wheel-item" style="--item-index: 2;">奖品2</div>
+      <div class="wheel-item" style="--item-index: 3;">奖品3</div>
+      <div class="wheel-item" style="--item-index: 4;">奖品4</div>
+      <div class="wheel-item" style="--item-index: 5;">奖品5</div>
+      <div class="wheel-item" style="--item-index: 6;">奖品6</div>
+    </div>
+    <button id="drawButton">抽奖</button>
+  </div>
+  <div id="winner"></div>
 </div>
-<button id="drawButton">抽奖</button>
-<div id="winner"></div>
-
-<script>
-  const participants = [
-    'user1',
-    'user2',
-    'user3',
-    'user4',
-    'user5'
-    // 在这里添加更多参与者
-  ];
-
-  const drawButton = document.getElementById('drawButton');
-  const participantList = document.getElementById('participantList');
-  const winnerDisplay = document.getElementById('winner');
-
-  participants.forEach(participant => {
-    const listItem = document.createElement('li');
-    listItem.textContent = participant;
-    participantList.appendChild(listItem);
-  });
-
-  drawButton.addEventListener('click', () => {
-    if (participants.length > 0) {
-      const randomIndex = Math.floor(Math.random() * participants.length);
-      const winner = participants[randomIndex];
-      winnerDisplay.textContent = `抽奖结果：恭喜 ${winner} 获奖！`;
-    } else {
-      winnerDisplay.textContent = '没有参与者可以抽奖。';
-    }
-  });
-</script>
+<script src="script.js" defer></script>
 </body>
 </html>
