@@ -3,71 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>奖品抽奖网站</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-  }
-  .container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  h1 {
-    margin-top: 0;
-  }
-  #prizeList {
-    margin-top: 20px;
-    list-style: none;
-    padding: 0;
-  }
-  #winner {
-    margin-top: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    color: #ff6347;
-  }
-  #inputContainer {
-    margin-top: 20px;
-  }
-  input[type="text"] {
-    padding: 10px;
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box;
-  }
-  button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-</style>
+<title>GitHub抽奖网站</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="container">
-  <h1>奖品抽奖网站</h1>
-  <ul id="prizeList">
-    <!-- 在这里添加奖品的列表项 -->
-  </ul>
+  <h1>GitHub抽奖网站</h1>
+  <div id="participants">
+    <h2>奖品列表</h2>
+    <ul id="participantList">
+      <li>奖品1</li>
+      <li>奖品2</li>
+      <li>奖品3</li>
+      <li>奖品4</li>
+      <li>奖品5</li>
+    </ul>
+  </div>
+  <button id="drawButton">抽奖</button>
   <div id="winner"></div>
-  <div id="inputContainer">
-    <input type="text" id="newPrize" placeholder="输入新的奖品">
-    <button id="addButton">添加奖品</button>
+</div>
+<div class="overlay" id="overlay">
+  <div class="popup">
+    <h2>抽奖结束</h2>
+    <p>请输入您的信息：</p>
+    <input type="text" id="userInfo" placeholder="请输入您的信息">
+    <button id="submitButton">提交</button>
   </div>
 </div>
+<script src="script.js" defer></script>
 </body>
 </html>
